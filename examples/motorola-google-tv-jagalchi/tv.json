@@ -1,0 +1,6 @@
+{
+  "tv": "Motorola Google TV (KTC jagalchi, MediaTek mt5867)",
+  "os": "Google TV 14",
+  "brand": "Motorola",
+  "notes": "Factory menus, manual, disclaimer, Google feedback, partner setup, auto-installs, calendar sync and printing off; stock launcherx kept because disabling it hands Home to setupwraith's RecoveryActivity (black screen) and setupwraith owns the saved Wi-Fi; 0.9 GB"
+}

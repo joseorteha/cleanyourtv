@@ -1,0 +1,40 @@
+# Motorola Google TV (ro.product.model "MOTOROLA GOOGLE TV", manufacturer KTC, device jagalchi, MediaTek mt5867), Google TV,
+# Android 14 (API 34), build UKN4.250714.046. About 0.9 GB of RAM, ro.config.low_ram=true, 1920x1080 panel with a 1280x720 UI.
+# Stock Home: com.google.android.apps.tv.launcherx. Live TV: com.mediatek.wwtv.tvcenter.
+#
+# Apply:   TV_HOST=<tv ip> tools/disable.sh examples/motorola-google-tv-jagalchi/debloat.txt
+# Undo:    TV_HOST=<tv ip> tools/restore.sh examples/motorola-google-tv-jagalchi/debloat.txt com.google.android.apps.tv.launcherx
+# Everything is DISABLED, not uninstalled. Comment out any line you want to keep.
+#
+# Status: disabled in two batches on one TV, Home and the remote checked after each. Short test only (hours, not days).
+#
+# LAUNCHER: not replaced on this set. With launcherx disabled, Home resolves to
+#   com.google.android.tungsten.setupwraith/.RecoveryActivity (priority 1), which draws nothing: the screen stays black
+#   after a reboot, even though the launcher's own Home worked until then. Disabling setupwraith is not an option
+#   either: dumpsys wifi lists 8 saved-network entries under cname=com.google.android.tungsten.setupwraith.
+#   Re-enabling launcherx brought Home back (pm enable com.google.android.apps.tv.launcherx).
+#
+# Kept on purpose: Play Store and Play Services, Live TV and its tuner inputs, com.mediatek.wwtv.tvcenter.plus,
+#   MtkTvInput, Dolby audio service, remote pairing, the Google TV launcher, the voice assistant (katniss),
+#   Cast receiver (mediashell), the screensaver (dreamx) and the Netflix token manager.
+#   fusion.android.tv.demo (retail demo) answers com.mstar.android.intent.action.TV_INPUT_BUTTON, so it is not listed
+#   until it is tested against the Input key.
+
+# Factory and test menus (never started, only disabled)
+ktc.factorymenu.ui
+mediatek.factorymenu.ui
+com.ktc.serialport
+
+# Manual and disclaimer
+com.electronic.manual
+com.mstar.android.tv.disclaimercustomization
+
+# Google feedback, partner setup, auto-installs, calendar sync
+com.google.android.feedback
+com.android.tv.feedbackconsent
+com.google.android.partnersetup
+android.autoinstalls.config.google.gtvpai
+com.google.android.syncadapters.calendar
+
+# Printing
+com.android.printspooler
